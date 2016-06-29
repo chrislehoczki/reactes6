@@ -30,11 +30,6 @@ app.get('/', function (req, res) {
   var Cart = React.createFactory(require("../components/Cart.js"));
   var cart = ReactDOMServer.renderToString(Cart({items: items}));
 
-  	fs.writeFile("test.html", cart, function() {
-  		console.log("written html")
-  	})
-
-  console.log(cart);
   res.render('index.ejs', {cart: cart, items: helper.safeStringify(items)});
 });
 
