@@ -12,11 +12,20 @@
 <body>
 
 	<h1> A React Isomorphic ES6 BoilerPlate </h1>
-	<div id="react-holder"></div>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
+	<div id="react-holder"><%- cart %></div>
+	<div id="game" style="position: relative;"></div>
+	<!-- CDN LINKS-->
+	<script src="https://fb.me/react-0.14.8.js"></script>
+	<script src="https://fb.me/react-dom-0.14.8.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.28.1/react-bootstrap.min.js"></script>
+	
+	<!-- LOCAL LINKS
+	<script src="public/js/react.min.js"></script>
+	<script src="public/js/react-dom.min.js"></script>
+	-->
+
+	<script id="items" type="application/json"><%-items%></script>
+
   	<script src="public/js/scripts.js"></script>
 </body>
 </html>

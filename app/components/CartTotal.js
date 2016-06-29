@@ -1,5 +1,5 @@
 
-import React from "react";
+const React = require("react");
 
 
 class CartTotal extends React.Component{
@@ -12,7 +12,7 @@ class CartTotal extends React.Component{
 
         render() {
 
-            const total = 0;
+            let total = 0;
             this.props.cartItems.map((item) => {
               console.log(item) 
               total += item.total;
@@ -32,4 +32,4 @@ class CartTotal extends React.Component{
 
 
 
-export default CartTotal;
+module.exports = CartTotal;

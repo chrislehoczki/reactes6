@@ -1,7 +1,12 @@
-
+/*
 import React from "react";
 import CartTotal from "./CartTotal.js";
 import Items from "./Items.js";
+*/
+
+const React = require("react");
+const CartTotal = require("./CartTotal.js");
+const Items = require("./Items.js");
 
 class Cart extends React.Component{
 
@@ -55,4 +60,4 @@ class Cart extends React.Component{
 
 
 
-export default Cart;
+module.exports = Cart;

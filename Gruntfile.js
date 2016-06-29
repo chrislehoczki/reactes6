@@ -13,7 +13,7 @@ grunt.initConfig({
         },
         my_target: {
           files: {
-            'public/js/scripts.js': ['build/js/scripts.js']
+            'public/js/scripts.js': ['src/js/scripts.js']
           }
         }
       },
@@ -24,7 +24,7 @@ grunt.initConfig({
       files: [{
         expand: true,
         src: ['scripts.js'],
-        cwd: 'build/js',
+        cwd: 'src/js',
         dest: 'public/js'
       }]
     }
@@ -33,11 +33,11 @@ grunt.initConfig({
 
       //BROWSERIFY
      browserify: {
-      dist: {
+      dev: {
         options: {
            transform: [['babelify', {presets: ['es2015', 'react']}]],
           watch : true, // use watchify for incremental builds!
-          keepAlive : true, // watchify will exit unless task is kept alive
+          //keepAlive : true, // watchify will exit unless task is kept alive
           browserifyOptions : {
             debug : true // source mapping
           }
@@ -48,7 +48,24 @@ grunt.initConfig({
       }
     },
 
-  
+  babel: {
+        options: {
+        sourceMap: true,
+        presets: ['es2015']
+    },
+    dist: {
+        files: [
+            {
+                expand: true,
+                cwd: 'app/components',
+                src: ['*.js'],
+                dest: 'app/components/server/'
+            }
+        ]
+    }
+
+  },
+    
 
   //SASS
   sass: {
@@ -57,7 +74,7 @@ grunt.initConfig({
                 style: 'compressed'
             },
             files: {
-                'public/css/styles.css': 'build/sass/main.scss'
+                'public/css/styles.css': 'src/sass/main.scss'
             }
         } 
     },
@@ -72,18 +89,30 @@ grunt.initConfig({
         tasks: ['browserify']
       },*/
       css: {
-            files: ['build/sass/*.scss'],
+            files: ['src/sass/*.scss'],
             tasks: ['sass'],
             options: {
                 spawn: false
             }
-        } 
+        },
+        /*
+      js: {
+            files: ['app/components/*.js'],
+            tasks: ['babel'],
+
+      }
+      */
     }
 
 
 
 
     });
+
+
+
+
+grunt.loadNpmTasks('grunt-babel');
 
 grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-contrib-sass');
@@ -92,13 +121,8 @@ grunt.loadNpmTasks('grunt-remove-logging');
 grunt.loadNpmTasks('grunt-contrib-uglify'); 
 grunt.loadNpmTasks('grunt-stripcomments');
 
-grunt.registerTask('default', ['uglify','removelogging']); // Default grunt tasks maps to grunt
+grunt.registerTask('default', ['browserify:dev', "watch"]); // Default grunt tasks maps to grunt
 
-//REGISTER CUSTOM TASKSS
-// A very basic default task. 
-/*
-
-  */
 
 
 };

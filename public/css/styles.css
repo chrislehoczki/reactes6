@@ -1,2 +1,2 @@
-body{padding:20px}.test{color:"green"}.qty-controller p,button{display:inline-block}.qty-controller p:nth-child(odd){cursor:pointer;cursor:hand}
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css";body{padding:20px}.test{color:"green"}.qty-controller p,button{display:inline-block}.qty-controller p:nth-child(odd){cursor:pointer;cursor:hand}
 /*# sourceMappingURL=styles.css.map */

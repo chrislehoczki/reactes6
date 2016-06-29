@@ -1,19 +1,12 @@
-import ReactDOM from "react-dom"
+const ReactDOM = require("react-dom");
 
-import Cart from "./Cart.js";
+const Cart = require("./Cart.js");
 
-const items = [{
-	type: "fruit",
-	name: "banana",
-	cost: 10,
-	currency: "GBP"
-},
-{
-	type: "fruit",
-	name: "banana",
-	cost: 10,
-	currency: "GBP"
-}
-]
+
+
+var items = JSON.parse(document.getElementById("items").innerHTML);
+console.log(items)
+
+
 
 ReactDOM.render(<Cart items={items}/>, document.getElementById("react-holder"));

@@ -1,7 +1,7 @@
 
 
 
-import React from "react";
+const React = require("react");
 
 
 class Item extends React.Component{
@@ -69,4 +69,4 @@ Item.defaultProps = {
 };
 
 
-export default Item;
+module.exports = Item;

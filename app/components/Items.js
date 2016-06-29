@@ -1,6 +1,6 @@
 
-import React from "react";
-import Item from "./Item.js";
+const React = require("react");
+const Item = require("./Item.js");
 
 class Items extends React.Component{
 
@@ -43,6 +43,6 @@ class Items extends React.Component{
 
 
 
-export default Items;
+module.exports = Items;
 
 
